@@ -8,10 +8,15 @@
   <h2>Ohtulaskuri</h2>
   <div>nappia painettu {{ value }} kertaa</div>
   <form action="/increment" method="POST">
-    <input type="submit" value="Paina">
+    <input type="submit" value="Paina" name="paina">
   </form>
   <form action="/reset" method="POST">
     <input type="submit" value="Nollaa">
+  </form>
+  <p>Aseta arvo:</p>
+  <form action="/increment" method="POST">
+    <input type="text" name="value">
+    <input type="submit" value="aseta" name="aseta">
   </form>
 </body>
 </html>

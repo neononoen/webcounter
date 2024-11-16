@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, request
 from counter import Counter
 
 app = Flask(__name__)
@@ -10,7 +10,11 @@ def index():
 
 @app.route("/increment", methods=["POST"])
 def increment():
-    cnt.increase()
+    if "paina" in request.form:
+        cnt.increase()
+    if "aseta" in request.form:
+        cnt.increment(int(request.form["value"]))
+    
     return redirect("/")
 
 @app.route("/reset", methods=["POST"])
